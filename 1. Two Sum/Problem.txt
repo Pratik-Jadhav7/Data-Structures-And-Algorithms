@@ -1,5 +1,6 @@
 1. Two Sum
-Easy
+
+ Quetion Level - Easy
 
 
 
