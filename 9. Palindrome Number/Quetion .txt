@@ -1,13 +1,10 @@
 9. Palindrome Number
-Easy
 
-5739
 
-2119
+Difficulty Level - Easy
 
-Add to List
 
-Share
+
 Given an integer x, return true if x is palindrome integer.
 
 An integer is a palindrome when it reads the same backward as forward.
