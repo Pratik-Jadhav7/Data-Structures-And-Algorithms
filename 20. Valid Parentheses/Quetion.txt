@@ -1,7 +1,7 @@
 20. Valid Parentheses
 
 
-Easy
+Difficulty Level - Easy
 
 
 
