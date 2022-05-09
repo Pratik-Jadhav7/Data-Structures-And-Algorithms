@@ -1,7 +1,7 @@
 21. Merge Two Sorted Lists
 
 
-Easy
+Difficulty Level - Easy
 
 12061
 
