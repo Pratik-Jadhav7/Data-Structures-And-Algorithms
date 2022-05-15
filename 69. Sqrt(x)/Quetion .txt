@@ -1,13 +1,10 @@
 69. Sqrt(x)
-Easy
 
-3808
 
-3194
+Difficulty Level - Easy
 
-Add to List
 
-Share
+
 Given a non-negative integer x, compute and return the square root of x.
 
 Since the return type is an integer, the decimal digits are truncated, and only the integer part of the result is returned.
