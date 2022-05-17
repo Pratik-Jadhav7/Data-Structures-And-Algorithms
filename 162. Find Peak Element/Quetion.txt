@@ -1,6 +1,6 @@
 162. Find Peak Element
 
-Medium
+Difficulty Level - Medium
 
 
 A peak element is an element that is strictly greater than its neighbors.
