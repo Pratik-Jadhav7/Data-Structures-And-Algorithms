@@ -1,7 +1,7 @@
 2011. Final Value of Variable After Performing Operations
 
 
-Easy
+Difficulty Level - Easy
 
 
 There is a programming language with only four operations and one variable X:
