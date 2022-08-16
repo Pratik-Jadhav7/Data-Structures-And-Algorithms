@@ -12,11 +12,11 @@ class Solution {
             a = Math.max(a,i-prev);
             prev = i;
         }
-//         prev = 0;
-//         for(int i:verticalCuts){
-//             b = Math.max(b,i-prev);
-//             prev = i;
-//         }
-//         return (int)((a*b)%mod);
+        prev = 0;
+        for(int i:verticalCuts){
+            b = Math.max(b,i-prev);
+            prev = i;
+        }
+        return (int)((a*b)%mod);
     }
 }
