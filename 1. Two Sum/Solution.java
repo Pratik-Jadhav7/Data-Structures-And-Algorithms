@@ -14,7 +14,7 @@ class Solution {
         }
     }
 
-    //  MY OWN METHOD
+//      MY OWN METHOD
 
 // class Solution {
 //     public int[] twoSum(int[] nums, int target) {

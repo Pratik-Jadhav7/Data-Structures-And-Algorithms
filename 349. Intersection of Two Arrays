@@ -1,0 +1,54 @@
+
+QUETION :
+
+349. Intersection of Two Arrays
+
+Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique and you may return the result in any order.
+
+ 
+
+Example 1:
+
+Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2]
+Example 2:
+
+Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+Output: [9,4]
+Explanation: [4,9] is also accepted.
+ 
+
+Constraints:
+
+1 <= nums1.length, nums2.length <= 1000
+0 <= nums1[i], nums2[i] <= 1000
+
+
+
+ANSWER :
+
+
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        HashSet<Integer> set1 = new HashSet<>();
+           HashSet<Integer> set2 = new HashSet<>();
+      
+        for(int i =0;i<nums1.length;i++)
+        {
+            set1.add(nums1[i]);
+        }
+          for(int i =0;i<nums2.length;i++)
+        {
+            set2.add(nums2[i]);
+        }
+        set1.retainAll(set2);//set1 intersection set2 and result in set1
+        int[] ans = new int[set1.size()];
+
+        int i = 0;
+           for(int j : set1) {
+    ans[i++] = j;
+}
+        
+        return ans;
+    }
+}
