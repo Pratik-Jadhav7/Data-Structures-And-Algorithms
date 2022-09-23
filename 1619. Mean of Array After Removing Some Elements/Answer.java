@@ -15,3 +15,24 @@ class Solution {
         return (double) ((double)total / (double)length);
     }
 }
+
+
+
+
+
+
+class Solution {
+    public double trimMean(int[] arr) {
+        Arrays.sort(arr);
+        int n = arr.length;
+        double total = 0;
+        int i = n/20;   // start from element after first 5% elements
+        int j = n - n/20;  // // till element before last 5% elements
+        int new_len = n - 2*(n/20);   // excluding first 5% and last 5% elements
+        while(i < j){
+            total += arr[i];
+            i++;
+        }
+        return total/new_len;
+     }
+}
