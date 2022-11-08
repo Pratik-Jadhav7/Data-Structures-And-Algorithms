@@ -1,23 +1,24 @@
 class Solution {
     public boolean isValid(String s) {
-        char[] chars = s.toCharArray();
-        Stack<Character> stack = new Stack<>();
-        for (char element : chars) {
-            if (element == '(' || element == '[' || element == '{') {
-                stack.push(element);
-                continue;
-            } else if (stack.empty()) {
-                return false;
-            }
-            char top = stack.pop();
-            if (top == '(' && element != ')') {
-                return false;
-            } else if (top == '[' && element != ']') {
-                return false;
-            } else if (top == '{' && element != '}') {
-                return false;
+    Stack<Character> stack = new Stack<>();
+        
+        Map<Character, Character> closeToOpenMap = new HashMap<>();
+        closeToOpenMap.put(')', '(');
+        closeToOpenMap.put('}', '{');
+        closeToOpenMap.put(']', '[');
+        
+        for(char c : s.toCharArray()) {
+            if( closeToOpenMap.containsKey(c)) {
+                if(!stack.empty() && stack.peek() == closeToOpenMap.get(c)) {
+                    stack.pop();
+                } else {
+                    return false;
+                }
+            } else {
+                stack.push(c);
             }
         }
-        return stack.empty();
+        if(stack.empty()) return true;
+        return false;
     }
 }
