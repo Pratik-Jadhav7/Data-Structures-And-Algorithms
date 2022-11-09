@@ -1,25 +1,21 @@
 class Solution {
     public int heightChecker(int[] heights) {
-        int[] heightToFreq = new int[101];
+        int[] map = new int[101]; // heights go from 1 to 100
+        for(int h: heights) ++map[h];
         
-        for (int height : heights) {
-            heightToFreq[height]++;
-        }
+        int res = 0;
+        int h_ptr = 1;
         
-        int result = 0;
-        int curHeight = 0;
-        
-        for (int i = 0; i < heights.length; i++) {
-            while (heightToFreq[curHeight] == 0) {
-                curHeight++;
+        for(int h: heights) {
+            while(map[h_ptr] == 0) ++h_ptr;
+            
+            if(h_ptr != h) {
+                ++res;
             }
             
-            if (curHeight != heights[i]) {
-                result++;
-            }
-            heightToFreq[curHeight]--;
+            --map[h_ptr];
         }
         
-        return result;
+        return res;
     }
 }
