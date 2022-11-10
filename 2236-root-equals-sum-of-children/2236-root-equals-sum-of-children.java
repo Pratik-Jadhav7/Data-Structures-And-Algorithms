@@ -19,3 +19,15 @@ class Solution {
         
     }
 }
+
+
+
+class Solution {
+    public boolean checkTree(TreeNode root) {
+       int values = root.left.val + root.right.val;
+        if(values == root.val) {
+            return true;
+            }
+        return false;
+    }
+}
