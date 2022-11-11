@@ -16,13 +16,17 @@
 // iterative
 // recursive
 public class Solution {
-    public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> result = new ArrayList<Integer>();
-        if (root != null){
-            result.add(root.val);
-            result.addAll(preorderTraversal(root.left));
-            result.addAll(preorderTraversal(root.right));
-        }
-        return result;
-    }
+   public List<Integer> preorderTraversal(TreeNode root) {
+	List<Integer> list = new ArrayList<>();
+	preorder(root, list);
+	return list;
+}
+
+public void preorder(TreeNode root, List<Integer> list) {
+	if(root == null) return;
+
+	list.add(root.val);
+	preorder(root.left, list);
+	preorder(root.right, list);
+}
 }
