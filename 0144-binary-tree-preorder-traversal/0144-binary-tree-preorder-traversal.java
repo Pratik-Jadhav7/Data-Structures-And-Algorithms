@@ -13,17 +13,19 @@
  *     }
  * }
  */
-class Solution {
-  public List<Integer> preorderTraversal(TreeNode root) {
-		List<Integer> pre = new LinkedList<Integer>();
-		preHelper(root,pre);
-		return pre;
-	}
-	public void preHelper(TreeNode root, List<Integer> pre) {
-		if(root==null) return;
-		pre.add(root.val);
-		preHelper(root.left,pre);
-		preHelper(root.right,pre);
-	}
-
+// iterative
+public class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<Integer>();
+        if (root == null) return result;
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        stack.push(root);
+        while (!stack.isEmpty()){
+            TreeNode node = stack.pop();
+            result.add(node.val);
+            if (node.right != null) stack.push(node.right);
+            if (node.left != null) stack.push(node.left);
+        }
+        return result;
+    }
 }
