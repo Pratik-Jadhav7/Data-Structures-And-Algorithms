@@ -16,19 +16,36 @@
 // At last assign the next element of the list2 as the next element of the middle pointer
 class Solution {
     public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
-        ListNode left = list1;
-        for (int i = 1; i < a; i++)
-            left = left.next;
+        ListNode curr1 = list1;
         
-        ListNode middle = left;
-        for (int i = a; i <= b; i++)
-            middle = middle.next;
+        //find the ath prev node and bth next node of list 1
+        ListNode athPrevNode = null;
+        ListNode bthNextNode = null;
+        int i = 0;
+        while(curr1 != null){
+            if(i == a - 1){
+                athPrevNode = curr1;
+            }
+            
+            if(i == b + 1){
+                bthNextNode = curr1;
+                break;
+            }
+            
+            curr1 = curr1.next;
+            i++;
+        }
         
-		left.next = list2;
-        while (list2.next != null)
-            list2 = list2.next;
+        //find last node of list 2
+        ListNode curr2 = list2;
+        while(curr2 != null && curr2.next != null){
+            curr2 = curr2.next;
+        }
         
-        list2.next = middle.next;
+        //now insert list2 in list 1
+        athPrevNode.next = list2;
+        curr2.next = bthNextNode;
+        
         return list1;
     }
 }
