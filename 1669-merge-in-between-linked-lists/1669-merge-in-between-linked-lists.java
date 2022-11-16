@@ -10,18 +10,22 @@
  */
 class Solution {
     public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
-    ListNode end = list1, start = null;
-        for (int i = 0; i < b; ++i, end = end.next) { // locate b upon termination of the loop.
-            if (i == a - 1) { // locate the node right before a.
-                start = end;
-            }
+        ListNode start = list1;
+        for (int i = 1; i < a; i++) {
+            start = start.next;
         }
-        start.next = list2; // connect the node right before a to the head of list2, hence cut off a from list1.
-        while (list2.next != null) { // traverse till the end of list2. 
+        
+        ListNode end = start;
+        for (int i = a; i <= b; i++) {
+            end = end.next;
+        }
+        
+        start.next = list2;
+        while (list2.next != null) {
             list2 = list2.next;
         }
-        list2.next = end.next; // connect end of list2 to the node right after b.
-        end.next = null; // cut off b from list1.
+        
+        list2.next = end.next;
         return list1;
     }
 }
