@@ -13,20 +13,34 @@
  *     }
  * }
  */
-// iterative
-// recursive
-public class Solution {
-   public List<Integer> preorderTraversal(TreeNode root) {
-	List<Integer> list = new ArrayList<>();
-	preorder(root, list);
-	return list;
-}
-
-public void preorder(TreeNode root, List<Integer> list) {
-	if(root == null) return;
-
-	list.add(root.val);
-	preorder(root.left, list);
-	preorder(root.right, list);
-}
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+//         creat ArrayList to store element in inorder
+        List<Integer> list = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        
+//         base case where Tree is empty 
+        if(root == null){
+            return list;
+        }
+//         push root node in stack
+        stack.push(root);
+        
+//         terminating condition
+        while(!stack.isEmpty()){
+//             poping the elements
+            TreeNode temp = stack.pop();
+            
+//              adding value to the ArrayList
+            list.add(temp.val);
+            
+            if(temp.right!=null){
+                stack.push(temp.right);
+            }
+            if(temp.left!=null){
+                stack.push(temp.left);
+            }
+        }
+        return list;
+    }
 }
