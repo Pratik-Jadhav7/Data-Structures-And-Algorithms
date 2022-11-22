@@ -19,20 +19,10 @@ class Solution {
         if(root==null){
             return list;
         }
-        postorder(root);
-        
-        return list;
-        
-    }
-    
-    public void postorder(TreeNode root){
-        if(root==null){
-            return;
-        }
-       postorder(root.left);
-        postorder(root.right);
+        postorderTraversal(root.left);
+       postorderTraversal(root.right);
         list.add(root.val);
         
-        return;
+        return list;
     }
 }
