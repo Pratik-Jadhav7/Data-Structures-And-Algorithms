@@ -19,19 +19,10 @@ class Solution {
         if(root==null){
             return list;
         }
-        preorder(root);
+        list.add(root.val);
+        preorderTraversal(root.left);
+        preorderTraversal(root.right);
         
         return list;
-    }
-    public void preorder(TreeNode root){
-        if(root==null){
-            return;
-        }
-        
-        list.add(root.val);
-        preorder(root.left);
-        preorder(root.right);
-        
-        return;
     }
 }
