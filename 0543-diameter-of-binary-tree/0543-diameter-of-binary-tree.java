@@ -14,22 +14,22 @@
  * }
  */
 class Solution {
-    int ans=0;
+    private int ans = 0;
     public int diameterOfBinaryTree(TreeNode root) {
-        if(root==null )return 0;
-        height(root);
+        if(root==null) return 0;
+        depth(root);
         return ans;
-    }
-    
-    public int height(TreeNode root){
-        //if root==null height==0
-        if(root==null)return 0;
         
-        int L=height(root.left);
-        int R=height(root.right);
-        //ans signfies(no. of nodes farthest apart) or the DIAMETER
-        ans=Math.max(ans,L+R);
-        //height of the tree is max of LST & RST +1
-        return 1+Math.max(L,R);
+        
+    }
+    public int depth(TreeNode root){
+        if(root==null) return 0;
+        
+        int l = depth(root.left);
+        int r = depth(root.right);
+        
+        ans=Math.max(ans, l+r);
+        
+        return Math.max(l,r)+1;
     }
 }
