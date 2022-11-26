@@ -23,12 +23,12 @@ class Solution {
     
     public int height(TreeNode root){
         //if root==null height==0
-        if(root==null)return -1;
+        if(root==null)return 0;
         
         int L=height(root.left);
         int R=height(root.right);
         //ans signfies(no. of nodes farthest apart) or the DIAMETER
-        ans=Math.max(ans,L+R+2);
+        ans=Math.max(ans,L+R);
         //height of the tree is max of LST & RST +1
         return 1+Math.max(L,R);
     }
