@@ -13,21 +13,32 @@
  *     }
  * }
  */
-public class Solution {
-private boolean result = true;
-
-public boolean isBalanced(TreeNode root) {
-    maxDepth(root);
-    return result;
-}
-
-public int maxDepth(TreeNode root) {
-    if (root == null)
-        return 0;
-    int l = maxDepth(root.left);
-    int r = maxDepth(root.right);
-    if (Math.abs(l - r) > 1)
-        result = false;
-    return 1 + Math.max(l, r);
-}
+class Solution {
+    public boolean isBalanced(TreeNode root) {
+        if(root==null){
+            return true;
+        }
+        if(height(root)==-1){
+            return false;
+        }
+        return true;
+    }
+    
+    public int height(TreeNode root){
+        if(root==null){
+            return 0;
+        }
+        
+        int left = height(root.left);
+        int right = height(root.right);
+        
+        if(left == -1 || right == -1){
+            return -1;
+        }
+        if(Math.abs(left-right)>1){
+            return -1;
+        }
+        
+        return Math.max(left, right)+1;
+    }
 }
