@@ -15,12 +15,15 @@
  */
 class Solution {
     public int maxDepth(TreeNode root) {
-        // Base Condition
-        if(root == null) return 0;
-        // Hypothesis
+        
+//         Base Condition
+        if(root == null){
+            return 0;
+        }
+//         Hypothysis
         int left = maxDepth(root.left);
         int right = maxDepth(root.right);
-        // Induction
-        return Math.max(left, right) + 1;
+        
+        return Math.max(left, right)+1;
     }
 }
