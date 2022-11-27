@@ -13,20 +13,20 @@
  *     }
  * }
  */
-public class Solution {
-    int maxValue;
-    
+class Solution {
+    int max = Integer.MIN_VALUE;
     public int maxPathSum(TreeNode root) {
-        maxValue = Integer.MIN_VALUE;
-        maxPathDown(root);
-        return maxValue;
+        sum(root);
+        return max;
     }
-    
-    private int maxPathDown(TreeNode node) {
-        if (node == null) return 0;
-        int left = Math.max(0, maxPathDown(node.left));
-        int right = Math.max(0, maxPathDown(node.right));
-        maxValue = Math.max(maxValue, left + right + node.val);
-        return Math.max(left, right) + node.val;
+     int sum(TreeNode root){
+        if(root==null) return 0;
+        
+        int l = Math.max(sum(root.left),0);
+        int r = Math.max(sum(root.right),0);
+        
+        max = Math.max(max, root.val+l+r);
+        
+        return root.val+ Math.max(l,r);
     }
 }
