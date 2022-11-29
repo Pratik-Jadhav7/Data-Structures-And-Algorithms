@@ -13,23 +13,22 @@
  *     }
  * }
  */
-public class Solution {
+class Solution {
     public List<Integer> rightSideView(TreeNode root) {
-        List<Integer> result = new ArrayList<Integer>();
-        rightView(root, result, 0);
+        List<Integer> result = new ArrayList<>();
+        rightview(root, result, 0);
         return result;
     }
-    
-    public void rightView(TreeNode curr, List<Integer> result, int currDepth){
+    public void rightview(TreeNode curr, List<Integer> result, int level){
         if(curr == null){
-            return;
+            return; 
         }
-        if(currDepth == result.size()){
+        
+        if(level == result.size()){
             result.add(curr.val);
         }
         
-        rightView(curr.right, result, currDepth + 1);
-        rightView(curr.left, result, currDepth + 1);
-        
+        rightview(curr.right, result, level+1);
+        rightview(curr.left, result,level+1);
     }
 }
