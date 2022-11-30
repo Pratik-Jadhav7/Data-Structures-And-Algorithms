@@ -14,18 +14,23 @@
  * }
  */
 class Solution {
-   public boolean isSymmetric(TreeNode root) {
-  if (root == null) { // required
-    return true;
-  }
-  return mirror(root.left, root.right); // so t1 and t2 are different trees
-}
-    private boolean mirror(TreeNode t1, TreeNode t2){
-        if(t1 == null && t2 == null) return true;
-        if(t1 == null || t2 == null) return false;
+    public boolean isSymmetric(TreeNode root) {
+        if(root == null) return false;
         
-        if(t1.val != t2.val) return false;
+       Stack<TreeNode> lStack = new Stack<>();
+       Stack<TreeNode> rStack = new Stack<>();
+        lStack.push(root.left); rStack.push(root.right);
         
-        return mirror(t1.right, t2.left) && mirror(t1.left, t2.right);
+          while (lStack.size() > 0 && rStack.size() > 0)  {
+                TreeNode t1 = lStack.pop();
+    TreeNode t2 = rStack.pop();
+               if (t1 == null && t2 == null) continue;
+    if (t1 == null || t2 == null) return false;
+                if (t1.val != t2.val) return false;
+               lStack.push(t1.right); lStack.push(t1.left); // could be null
+    rStack.push(t2.left);  rStack.push(t2.right);
     }
+  // One of the stack might be empty
+  return lStack.size() == 0 && rStack.size() == 0;
+}
 }
