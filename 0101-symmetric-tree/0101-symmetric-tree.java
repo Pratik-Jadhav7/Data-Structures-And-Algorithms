@@ -14,9 +14,12 @@
  * }
  */
 class Solution {
-    public boolean isSymmetric(TreeNode root) {
-        return mirror(root, root);
-    }
+   public boolean isSymmetric(TreeNode root) {
+  if (root == null) { // required
+    return true;
+  }
+  return mirror(root.left, root.right); // so t1 and t2 are different trees
+}
     private boolean mirror(TreeNode t1, TreeNode t2){
         if(t1 == null && t2 == null) return true;
         if(t1 == null || t2 == null) return false;
