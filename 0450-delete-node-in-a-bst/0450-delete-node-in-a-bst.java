@@ -34,16 +34,20 @@ class Solution {
             else if(root.right==null){
                 return root.left;
             }
-            else{
-                TreeNode min = root.right;
-                while(min.left!=null){
-                    min = min.left;
-                }
-                
-                root.val = min.val;
-                root.right = deleteNode(root.right,min.val);
-                return root;
+            else{   
+           TreeNode minNode = minVal(root.right);
+                root.val = minNode.val;
+                root.right =deleteNode(root.right,minNode.val);
+               
             }
         }
+        return root;
+    }
+    public TreeNode minVal(TreeNode root){
+        TreeNode curr = root;
+        while(curr != null && curr.left != null){
+            curr = curr.left;
+        }
+        return curr;
     }
 }
