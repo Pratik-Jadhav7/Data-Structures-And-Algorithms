@@ -1,29 +1,19 @@
-
-    class Solution {
-    private int N = 26;
+class Solution {
     public boolean closeStrings(String word1, String word2) {
-		// count the English letters
-        int[] arr1 = new int[N], arr2 = new int[N];
-        for (char ch : word1.toCharArray())
-            arr1[ch - 'a']++;
-        for (char ch : word2.toCharArray())
-            arr2[ch - 'a']++;
-		
-		// if one has a letter which another one doesn't have, dont exist
-        for (int i = 0; i < N; i++) {
-            if (arr1[i] == arr2[i]) {
-                continue;
-            }
-            if (arr1[i] == 0 || arr2[i] == 0) {
-                return false;
-            }
+        int freq1[]=new int [26];
+        int freq2[]=new int [26];
+        for(int i=0;i<word1.length();i++){
+            freq1[word1.charAt(i)-'a']++;
         }
-        Arrays.sort(arr1);
-        Arrays.sort(arr2);
-        for (int i = 0; i < N; i++) {
-            if (arr1[i] != arr2[i]) {
-                return false;
-            }
+        for(int i=0;i<word2.length();i++){
+            freq2[word2.charAt(i)-'a']++;
+        }
+        for(int i=0;i<26;i++){
+            if((freq1[i]==0&&freq2[i]!=0)||(freq1[i]!=0&&freq2[i]==0))return false;
+        }
+        Arrays.sort(freq1);Arrays.sort(freq2);
+        for(int i=0;i<26;i++){
+            if(freq1[i]!=freq2[i])return false;
         }
         return true;
     }
