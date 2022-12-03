@@ -14,19 +14,18 @@
  * }
  */
 class Solution {
-    int count = 0;
-    int result= Integer.MIN_VALUE;
+    int counter = 0;
+    int result = Integer.MIN_VALUE;
     public int kthSmallest(TreeNode root, int k) {
         kth(root, k);
         return result;
-        
     }
     public void kth(TreeNode root, int k){
-        if(root==null) return;
+        if(root == null) return;
         
-        kth(root.left, k);
-        count++;
-        if(count == k) result = root.val;
+        kth(root.left , k);
+        counter++;
+        if(counter==k) result = root.val;
         kth(root.right, k);
     }
 }
