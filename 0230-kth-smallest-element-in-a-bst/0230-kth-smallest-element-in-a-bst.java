@@ -14,24 +14,19 @@
  * }
  */
 class Solution {
+    int count = 0;
+    int result= Integer.MIN_VALUE;
     public int kthSmallest(TreeNode root, int k) {
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        TreeNode p = root;
-        int count = 0;
+        kth(root, k);
+        return result;
         
-        while(!stack.isEmpty() || p!=null){
-            if(p != null){
-                stack.push(p);
-                p = p.left;
-            }
-            else {
-                TreeNode node = stack.pop();
-                if(++count == k){
-                    return node.val;
-                }
-                p = node.right;
-            }
-        }
-        return Integer.MIN_VALUE;
+    }
+    public void kth(TreeNode root, int k){
+        if(root==null) return;
+        
+        kth(root.left, k);
+        count++;
+        if(count == k) result = root.val;
+        kth(root.right, k);
     }
 }
