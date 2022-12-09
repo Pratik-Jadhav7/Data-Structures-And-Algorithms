@@ -1,3 +1,6 @@
+Start with Brute force solution
+
+
 No1:
 
  List<Integer> ans = new ArrayList<>();
