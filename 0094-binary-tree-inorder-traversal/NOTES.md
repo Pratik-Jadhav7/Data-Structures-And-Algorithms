@@ -1,5 +1,6 @@
 Start with Brute force solution
 then go for optimal solution
+Now Optimized solutiobn
 
 
 No1:
