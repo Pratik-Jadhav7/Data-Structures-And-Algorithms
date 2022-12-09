@@ -1,5 +1,5 @@
 Start with Brute force solution<p>
-then go for optimal solution
+then go for optimal solution<p>
 Now Optimized solutiobn
 
 
