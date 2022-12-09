@@ -1,4 +1,5 @@
 Start with Brute force solution
+then go for optimal solution
 
 
 No1:
