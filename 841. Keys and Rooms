@@ -38,3 +38,27 @@ n == rooms.length
 1 <= sum(rooms[i].length) <= 3000
 0 <= rooms[i][j] < n
 All the values of rooms[i] are unique.
+
+
+
+
+
+ANSWER
+
+    public boolean canVisitAllRooms(List<List<Integer>> rooms) {
+        Set<Integer> visited = new HashSet<>();
+        Queue<Integer> queue = new LinkedList<>();
+        queue.offer(0);
+        visited.add(0);
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            for (int next : rooms.get(node)) {
+                if (!visited.contains(next)) {
+                    queue.offer(next);
+                    visited.add(next);
+                }
+            }
+        }
+        return visited.size() == rooms.size();
+    }
+}
