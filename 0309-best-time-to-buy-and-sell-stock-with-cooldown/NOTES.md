@@ -14,7 +14,10 @@ Taking both cases into account, profit1[i+1] = max(profit1[i]+prices[i+1]-prices
 2. profit2[i+1] means I do nothing on day i+1, so it will be max(profit1[i], profit2[i])
 And the code:
 
-public int maxProfit(int[] prices) {
+
+
+
+    public int maxProfit(int[] prices) { 
     int profit1=0, profit2=0;   
     for(int i=1; i<prices.length; i++){
         int copy=profit1;
